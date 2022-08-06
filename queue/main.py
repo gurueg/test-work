@@ -1,23 +1,24 @@
-"""
-В качестве внтреннего 'наполнения' очереди можно использовать builtin контейнер deque,
-однако уже использовался list, показалось менее интересным
-Deque был бы лучшим по производительности
-"""
-from myQueue import Queue
-# from arrayQueue import Queue
+# from myBuffer import RingBuffer
+from deqBuffer import RingBuffer
 
 def main():
-    q = Queue()
+    q = RingBuffer(3)
+    q.enqueue(1)
+    print q
+    q.enqueue(2)
+    print q
     q.enqueue(3)
+    print q
     q.enqueue(4)
+    print q
     q.enqueue(5)
+    print q
+    q.dequeue()
+    print q
+    q.dequeue()
+    print q
     q.enqueue(6)
-
-    print q.peek()
-    while(not q.isEmpty()):
-        print q.dequeue()
-
-    print q.isEmpty()
+    print q
 
 
 if __name__ == "__main__":
